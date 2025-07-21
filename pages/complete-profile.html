@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Your Profile - Utsavia</title>
+    <link rel="stylesheet" href="../styles/profile.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">Utsavia</div>
+            <a href="../index.html" class="nav-signout">Sign out</a>
+        </div>
+    </nav>
+
+    <main class="profile-container">
+        <!-- This title will be updated by JavaScript -->
+        <h1 id="profile-title">Complete Your Profile</h1>
+        <p class="subtitle">Tell us more about yourself to get the most out of Utsavia</p>
+
+        <!-- College Profile Form -->
+        <form id="college-form" class="profile-form hidden">
+            <div class="form-card">
+                <h2>Basic Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="college-name">Full Name *</label>
+                        <input type="text" id="college-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="college-email">Email *</label>
+                        <input type="email" id="college-email" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="college-phone">Phone Number</label>
+                        <input type="tel" id="college-phone">
+                    </div>
+                </div>
+            </div>
+            <div class="form-card">
+                <h2>College Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="college-info-name">College Name *</label>
+                        <input type="text" id="college-info-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="college-location">Location *</label>
+                        <input type="text" id="college-location" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="college-type">College Type</label>
+                        <select id="college-type">
+                            <option value="">Select Type</option>
+                            <option value="engineering">Engineering</option>
+                            <option value="medical">Medical</option>
+                            <option value="arts">Arts & Science</option>
+                            <option value="business">Business</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="college-year">Established Year</label>
+                        <input type="text" id="college-year">
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-back">Back</button>
+                <button type="submit" class="btn-complete">Complete Setup <span class="arrow">→</span></button>
+            </div>
+        </form>
+
+        <!-- Student Profile Form -->
+        <form id="student-form" class="profile-form hidden">
+            <div class="form-card">
+                <h2>Basic Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="student-name">Full Name *</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-email">Email *</label>
+                        <input type="email" id="student-email" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="student-phone">Phone Number</label>
+                        <input type="tel" id="student-phone">
+                    </div>
+                </div>
+            </div>
+            <div class="form-card">
+                <h2>Student Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="student-id">Student ID</label>
+                        <input type="text" id="student-id">
+                    </div>
+                    <div class="form-group">
+                        <label for="student-course">Course</label>
+                        <input type="text" id="student-course">
+                    </div>
+                    <div class="form-group">
+                        <label for="student-year">Year</label>
+                        <select id="student-year">
+                            <option value="">Select Year</option>
+                            <option value="1">1st Year</option>
+                            <option value="2">2nd Year</option>
+                            <option value="3">3rd Year</option>
+                            <option value="4">4th Year</option>
+                            <option value="5">5th Year</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-college">College</label>
+                        <select id="student-college">
+                            <option value="">Select College</option>
+                            <!-- This would be populated dynamically in a real app -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-back">Back</button>
+                <button type="submit" class="btn-complete">Complete Setup <span class="arrow">→</span></button>
+            </div>
+        </form>
+
+        <!-- Sponsor Profile Form -->
+        <form id="sponsor-form" class="profile-form hidden">
+            <div class="form-card">
+                <h2>Basic Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="sponsor-name">Full Name *</label>
+                        <input type="text" id="sponsor-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sponsor-email">Email *</label>
+                        <input type="email" id="sponsor-email" required>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="sponsor-phone">Phone Number</label>
+                        <input type="tel" id="sponsor-phone">
+                    </div>
+                </div>
+            </div>
+            <div class="form-card">
+                <h2>Company Information</h2>
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="sponsor-company">Company Name *</label>
+                        <input type="text" id="sponsor-company" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="sponsor-industry">Industry</label>
+                        <input type="text" id="sponsor-industry">
+                    </div>
+                    <div class="form-group">
+                        <label for="sponsor-size">Company Size</label>
+                        <select id="sponsor-size">
+                            <option value="">Select Size</option>
+                            <option value="1-10">1-10 employees</option>
+                            <option value="11-50">11-50 employees</option>
+                            <option value="51-200">51-200 employees</option>
+                            <option value="201-500">201-500 employees</option>
+                            <option value="501+">501+ employees</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="sponsor-website">Website</label>
+                        <input type="url" id="sponsor-website">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="sponsor-budget">Annual Sponsorship Budget (₹)</label>
+                        <input type="text" inputmode="numeric" pattern="[0-9]*" id="sponsor-budget">
+                    </div>
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn-back">Back</button>
+                <button type="submit" class="btn-complete">Complete Setup <span class="arrow">→</span></button>
+            </div>
+        </form>
+    </main>
+
+    <script src="../scripts/profile.js"></script>
+</body>
+</html>

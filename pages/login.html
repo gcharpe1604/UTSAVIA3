@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login – Utsavia</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|DM+Sans:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <link rel="stylesheet" href="../styles/auth.css"/>
+  <style>
+    .back-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: background 0.2s ease;
+    }
+    .back-home:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="auth-bg">
+  <a href="../index.html" class="back-home">Back to Home</a>
+  <main class="auth-center">
+    <div class="auth-card split-auth-card" role="main">
+      <div class="auth-logo-center"><span class="auth-logo">✦ <span>Utsavia</span></span></div>
+      <div class="auth-split">
+        <div class="auth-split-left">
+          <h2 class="auth-title">Sign in to your account</h2>
+          <form class="auth-form" id="login-form" autocomplete="off" novalidate>
+            <div class="form-group">
+              <label for="login-email">Email</label>
+              <input type="email" id="login-email" required />
+              <span class="input-status"></span>
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="login-password" required />
+                <button type="button" class="show-password" aria-label="Show password"></button>
+              </div>
+              <span class="input-status"></span>
+            </div>
+            <div class="forgot-link-wrap"><a href="#" class="auth-link">Forgot password?</a></div>
+            <button type="submit" class="auth-btn">Log In</button>
+          </form>
+        </div>
+        <div class="auth-split-divider"></div>
+        <div class="auth-split-right">
+          <div class="auth-social">
+            <button class="social-btn google"><span class="g-logo"></span>Continue with Google</button>
+            <button class="social-btn facebook"><span class="f-logo"></span>Continue with Facebook</button>
+          </div>
+          <div class="auth-footer">
+            Don’t have an account? <a href="signup.html">Sign up</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script src="../scripts/auth.js"></script>
+</body>
+</html> 

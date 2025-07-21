@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Your Role – Utsavia</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|DM+Sans:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <link rel="stylesheet" href="../styles/auth.css"/>
+  <style>
+    body.role-bg { background: #181a22; min-height: 100vh; }
+    .role-center { display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+    .role-select-wrap { width: 100%; max-width: 1100px; margin: 0 auto; text-align: center; }
+    .role-title { font-size: 2.5em; font-weight: 800; margin-bottom: 0.2em; background: linear-gradient(90deg, #36d1c4, #7b2ff2); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .role-subtitle { color: #b0b8c9; font-size: 1.2em; margin-bottom: 2.5em; }
+    .role-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5em;
+      justify-items: center;
+      align-items: stretch;
+    }
+    .role-card {
+      background: #23243a;
+      border-radius: 1.2em;
+      box-shadow: 0 4px 32px #2228;
+      padding: 2em 1.2em 1.5em 1.2em;
+      min-width: 0;
+      max-width: 320px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border: 2.5px solid transparent;
+      cursor: pointer;
+      transition: border 0.2s, box-shadow 0.2s, transform 0.2s;
+      outline: none;
+      margin-bottom: 0;
+    }
+    .role-card:focus, .role-card:hover {
+      border: 2.5px solid #7b2ff2;
+      box-shadow: 0 8px 40px #7b2ff244;
+      transform: translateY(-6px) scale(1.03);
+    }
+    .role-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 1em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2em;
+      margin-bottom: 1.1em;
+      background: linear-gradient(135deg, #36d1c4, #7b2ff2);
+      color: #fff;
+    }
+    .role-card h3 { margin: 0 0 0.3em 0; font-size: 1.2em; color: #fff; font-weight: 700; }
+    .role-card p { color: #b0b8c9; font-size: 1em; margin-bottom: 1.1em; }
+    .role-features { list-style: none; padding: 0; margin: 0; width: 100%; text-align: left; }
+    .role-features li { display: flex; align-items: center; color: #36d1c4; font-size: 1.02em; margin-bottom: 0.4em; font-weight: 500; }
+    .role-features li::before { content: '•'; color: #36d1c4; margin-right: 0.6em; font-size: 1.1em; }
+    @media (max-width: 1100px) {
+      .role-select-wrap { max-width: 98vw; }
+      .role-cards { gap: 1em; }
+      .role-card { max-width: 98vw; }
+    }
+    @media (max-width: 900px) {
+      .role-cards { grid-template-columns: 1fr; gap: 1.2em; }
+      .role-card { max-width: 98vw; }
+    }
+    @media (max-width: 600px) {
+      .role-title { font-size: 2em; }
+      .role-card { padding: 1.2em 0.7em; }
+    }
+  </style>
+</head>
+<body class="role-bg">
+  <nav class="navbar">
+    <div class="container nav-content">
+      <div class="logo">Utsavia</div>
+    </div>
+  </nav>
+  <main class="role-center">
+    <div class="role-select-wrap">
+      <h2 class="role-title">Choose Your Role</h2>
+      <div class="role-subtitle">Select how you'll be using Utsavia to get started</div>
+      <div class="role-cards">
+        <div class="role-card" tabindex="0" data-role="college" aria-label="College">
+          <div class="role-icon" style="background: linear-gradient(135deg, #36d1c4, #7b2ff2);">🏫</div>
+          <h3>College</h3>
+          <p>Manage institutional events and connect with sponsors</p>
+          <ul class="role-features">
+            <li>Event portfolio management</li>
+            <li>Sponsor relationship tools</li>
+            <li>Analytics dashboard</li>
+            <li>Student collaboration</li>
+          </ul>
+        </div>
+        <div class="role-card" tabindex="0" data-role="student" aria-label="Student">
+          <div class="role-icon" style="background: linear-gradient(135deg, #a259c6, #f953c6);">🎓</div>
+          <h3>Student</h3>
+          <p>Organize events and create compelling proposals</p>
+          <ul class="role-features">
+            <li>Event planning tools</li>
+            <li>Proposal generator</li>
+            <li>Vendor marketplace</li>
+            <li>Team collaboration</li>
+          </ul>
+        </div>
+        <div class="role-card" tabindex="0" data-role="sponsor" aria-label="Sponsor">
+          <div class="role-icon" style="background: linear-gradient(135deg, #1fd655, #16a085);">💼</div>
+          <h3>Sponsor</h3>
+          <p>Discover events and track campaign performance</p>
+          <ul class="role-features">
+            <li>Event discovery</li>
+            <li>Campaign analytics</li>
+            <li>Digital contracts</li>
+            <li>ROI tracking</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+  <script>
+    // Keyboard and click accessibility
+    document.querySelectorAll('.role-card').forEach(card => {
+      card.addEventListener('click', function() {
+        const role = this.getAttribute('data-role');
+        window.location.href = `signup.html?role=${role}`;
+      });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          this.click();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

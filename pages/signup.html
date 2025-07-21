@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up – Utsavia</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|DM+Sans:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles/main.css"/>
+  <link rel="stylesheet" href="../styles/auth.css"/>
+  <style>
+    .back-home {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Poppins', sans-serif;
+      padding: 8px 16px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      transition: background 0.2s ease;
+    }
+    .back-home:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body class="auth-bg">
+  <a href="../index.html" class="back-home">Back to Home</a>
+  <main class="auth-center">
+    <div class="auth-card split-auth-card" role="main">
+      <div class="auth-logo-center"><span class="auth-logo">✦ <span>Utsavia</span></span></div>
+      <div class="auth-split">
+        <div class="auth-split-left">
+          <h2 class="auth-title">Create your account</h2>
+          <form class="auth-form" id="signup-form" autocomplete="off" novalidate>
+            <div class="form-group">
+              <label for="signup-email">Email</label>
+              <input type="email" id="signup-email" required />
+              <span class="input-status"></span>
+            </div>
+            <div class="form-group">
+              <label for="signup-password">Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="signup-password" required />
+                <button type="button" class="show-password" aria-label="Show password"></button>
+              </div>
+              <ul class="password-hints">
+                <li>At least 8 characters</li>
+                <li>One uppercase, one number</li>
+              </ul>
+              <span class="input-status"></span>
+            </div>
+            <div class="form-group">
+              <label for="signup-confirm-password">Confirm Password</label>
+              <div class="password-wrapper">
+                <input type="password" id="signup-confirm-password" required />
+                <button type="button" class="show-password" aria-label="Show password"></button>
+              </div>
+              <span class="input-status"></span>
+              <div class="input-error" aria-live="polite"></div>
+            </div>
+            <button type="submit" class="auth-btn">Sign Up</button>
+          </form>
+        </div>
+        <div class="auth-split-divider"></div>
+        <div class="auth-split-right">
+          <div class="auth-social">
+            <button class="social-btn google"><span class="g-logo"></span>Continue with Google</button>
+            <button class="social-btn facebook"><span class="f-logo"></span>Continue with Facebook</button>
+          </div>
+          <div class="auth-footer">
+            Already have an account? <a href="login.html">Log in</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  <script src="../scripts/auth.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      // Pre-select role from query parameter
+      const params = new URLSearchParams(window.location.search);
+      const role = params.get('role');
+      if (role) {
+        document.querySelectorAll('.role-tab').forEach(tab => {
+          if (tab.textContent.toLowerCase().includes(role)) {
+            tab.classList.add('selected');
+            tab.setAttribute('aria-selected', 'true');
+          } else {
+            tab.classList.remove('selected');
+            tab.setAttribute('aria-selected', 'false');
+          }
+        });
+      }
+
+      function handleSignup(event) {
+          event.preventDefault();
+          
+          // In a real application, you would add your form validation logic here.
+          // For this demo, we'll assume validation passes.
+
+          const currentParams = new URLSearchParams(window.location.search);
+          const currentRole = currentParams.get('role') || 'college'; // Default role
+          window.location.href = `complete-profile.html?role=${currentRole}`;
+      }
+
+      const signupForm = document.getElementById('signup-form');
+      if (signupForm) {
+        signupForm.addEventListener('submit', handleSignup);
+      }
+    });
+  </script>
+</body>
+</html> 
